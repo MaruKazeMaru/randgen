@@ -24,3 +24,26 @@ float normal_dist_rand(float avr, float var){
     x += avr;
     return x;
 }
+
+float* multi_normal_dist(int dim, float* avr, float** var){
+    if(dim <= 0)
+        return NULL;
+
+    float* z = (float*)malloc(dim * sizeof(float));
+    for(int j = 0; j < dim; ++j)
+        z[j] = std_normal_dist_rand();
+
+    float* x = (float*)malloc(dim * sizeof(float));
+    for(int i = 0; i < dim; ++i){
+        x[i] = 0.0f;
+        for(int j = 0; j < dim; ++j)
+            x[i] += var[i][j] * z[j];
+    }
+
+    free(z);
+
+    for(int i = 0; i < dim; ++i)
+        x[i] -= avr[i];
+
+    return x;
+}
