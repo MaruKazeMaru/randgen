@@ -7,8 +7,8 @@ ls build | grep src > /dev/null
 
 cd build/src
 
-gcc -I../../include -c -lm ../../src/normal.c
+gcc -I../../include -c -lm ../../src/my_normal_dist.c
 
-ar rcs libnormal.a normal.o
+ar rcs libmy_normal_dist.a my_normal_dist.o
 
-gcc -o show_normal_dist.out ../../src/show_normal_dist.c -I../../include -L. -lnormal -lm 
+gcc -o show_normal_dist.out ../../src/show_normal_dist.c -I../../include -L. -lmy_normal_dist -lm 

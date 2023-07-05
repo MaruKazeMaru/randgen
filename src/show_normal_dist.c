@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#include <normal.h>
+#include <my_normal_dist.h>
 
 int main(void){
     srand(time(NULL));

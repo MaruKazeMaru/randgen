@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <math.h>
 
-#include <normal.h>
+#include <my_normal_dist.h>
 
 float std_normal_dist_rand(){
     // 10 * E[ x ] = 0 + 1 + 2 + ... +  9 =  45
