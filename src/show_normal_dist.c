@@ -12,7 +12,7 @@ int main(void){
         cnt[j] = 0;
 
     for(int i = 0; i < 1000; ++i){
-        float sample = normal_dist_rand();
+        float sample = std_normal_dist_rand();
 
         if(sample > 4.0f){
             ++cnt[40];
