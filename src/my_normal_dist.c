@@ -25,7 +25,7 @@ float normal_dist_rand(float avr, float var){
     return x;
 }
 
-float* multi_normal_dist(int dim, float* avr, float** var){
+float* multi_normal_dist_rand(int dim, float* avr, float** var){
     if(dim <= 0)
         return NULL;
 
@@ -46,4 +46,24 @@ float* multi_normal_dist(int dim, float* avr, float** var){
         x[i] -= avr[i];
 
     return x;
+}
+
+float* mixtured_multi_normal_dist_rand(int dim, int normal_dists_size, float* weights, float** avrs, float*** vars){
+    if(normal_dists_size <= 0)
+        return NULL;
+
+    float a = (float)((double)rand() / (double)RAND_MAX);
+
+    float w_sum = 0.0f;
+    for(int k = 0; k < normal_dists_size; ++k)
+        w_sum += weights[k];
+
+    int k = 0;
+    float w_sum_k = weights[0] / w_sum;
+    while(k < normal_dists_size - 1 && w_sum_k <= a){
+        ++k;
+        w_sum_k += weights[k] / w_sum;
+    }
+
+    return multi_normal_dist_rand(dim, avrs[k], vars[k]);
 }
