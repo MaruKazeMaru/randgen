@@ -49,9 +49,6 @@ float* multi_normal_dist_rand(int dim, float* avr, float** var){
 }
 
 float* mixtured_multi_normal_dist_rand(int dim, int normal_dists_size, float* weights, float** avrs, float*** vars){
-    if(normal_dists_size <= 0)
-        return NULL;
-
     float a = (float)((double)rand() / (double)RAND_MAX);
 
     float w_sum = 0.0f;
