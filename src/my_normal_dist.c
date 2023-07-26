@@ -43,7 +43,7 @@ float* multi_normal_dist_rand(int dim, float* avr, float** var){
     free(z);
 
     for(int i = 0; i < dim; ++i)
-        x[i] -= avr[i];
+        x[i] += avr[i];
 
     return x;
 }
