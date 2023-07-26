@@ -42,7 +42,7 @@ int main(void){
 
         printf("%f", data[0]);
         for(int j = 1; j < dim; ++j)
-            printf(" %f", data[j]);
+            printf(",%f", data[j]);
         printf("\n");
 
         free(data);
